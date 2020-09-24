@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-
-from typing import List
+import math
 
 
 def convert_to_absolute(number: float) -> float:
@@ -19,9 +17,21 @@ def use_prefixes() -> List[str]:
      word_liste.append(i+suffixe)
     return word_liste
 
+def find_premier (n)->bool :
+    for nombre in range(2,n):
+        if n%nombre== 0 :
+            return False
+    return True
+
 
 def prime_integer_summation() -> int:
-    pass
+    liste12 = []
+    n = 2
+    while len(liste12) < 100:
+        if find_premier(n):
+            liste12.append(n)
+        n += 1
+    return sum(liste12)
 
 
 
