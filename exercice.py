@@ -1,16 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import math
 
 
 def convert_to_absolute(number: float) -> float:
     if number>0 :
        return  number
-
     return number*(-1)
 
 
-def use_prefixes() -> List[str]:
+def use_prefixes() -> list[str]:
     prefixes, suffixe = 'JKLMNOPQ', 'ack'
     word_liste=[]
     for i in prefixes :
@@ -48,23 +46,20 @@ def use_continue() -> None:
             continue
         print(i)
 
-def verify_ages(groups: List[List[int]]) -> List[bool]:
+def verify_ages(groups: list[list[int]]) -> list[bool]:
     verify=[]
-    under_groups=[]
-    for numero_groupe in groups :
-        if len(numero_groupe) > 10 or len(numero_groupe) <= 3:
-            verify.append("false")
+    for groupe_i in groups :
+        if len(groupe_i)>10 and len(groupe_i)<=3 :
+            verify.append(False)
+            continue
+        elif 25 in groupe_i :
+            verify.append(True)
+            continue
+        elif (min(groupe_i)<18 ) or (50 in groupe_i and max(groupe_i)>70) :
+            verify.append(False)
+            continue
         else :
-        for condition in groups[len(numero_groupe)] :
-         if condition == 25 :
-             verify.append("true")
-          elif condition<18 :
-            verify.append("false")
-         elif condition >70 :
-          verify.append("false")
-
-        else : verify.append("true")
-
+            verify.append(True)
     return verify
 
 
